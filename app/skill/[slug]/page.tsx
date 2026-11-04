@@ -2,6 +2,10 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { skills } from "@/Lib/skills";
 
+export function generateStaticParams() {
+  return skills.map((s) => ({ slug: s.slug }));
+}
+
 export default async function SkillPage({
   params,
 }: {
