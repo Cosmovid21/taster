@@ -1,4 +1,5 @@
-import { skills } from "../Lib/skills";
+import Link from "next/link";
+import { skills } from "@/Lib/skills";
 
 export default function Home() {
   return (
@@ -10,11 +11,15 @@ export default function Home() {
 
       <div className="mt-8 grid gap-4 sm:grid-cols-2">
         {skills.map((skill) => (
-          <div key={skill.slug} className="rounded-xl border p-4">
+          <Link
+            key={skill.slug}
+            href={`/skill/${skill.slug}`}
+            className="rounded-xl border p-4 hover:bg-gray-50"
+          >
             <div className="text-3xl">{skill.emoji}</div>
             <h2 className="mt-2 text-lg font-semibold">{skill.name}</h2>
             <p className="text-sm text-gray-600">{skill.tagline}</p>
-          </div>
+          </Link>
         ))}
       </div>
     </main>
