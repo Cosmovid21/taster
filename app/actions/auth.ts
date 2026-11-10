@@ -3,6 +3,7 @@
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { isSupabaseConfigured } from "@/Lib/auth-config";
+import { parseOnboardingPreferences } from "@/Lib/onboarding";
 import { createSupabaseServerClient } from "@/Lib/supabase/server";
 import {
   validateEmail,
@@ -53,9 +54,11 @@ export async function signIn(
   }
 
   const supabase = await createSupabaseServerClient();
-  const { error } = await supabase.auth.signInWithPassword({ email, password });
+  const { data, error } = await supabase.auth.signInWithPassword({ email, password });
   if (error) return { error: error.message };
-  redirect("/dashboard");
+  const savedSetup = data.user.user_metadata?.curio_onboarding;
+  const setupComplete = Boolean(savedSetup?.completed && parseOnboardingPreferences(savedSetup));
+  redirect(setupComplete ? "/dashboard" : "/onboarding");
 }
 
 export async function signUp(
@@ -91,11 +94,11 @@ export async function signUp(
     password,
     options: {
       data: { name },
-      emailRedirectTo: `${origin}/dashboard`,
+      emailRedirectTo: `${origin}/onboarding`,
     },
   });
   if (error) return { error: error.message };
-  if (data.session) redirect("/dashboard");
+  if (data.session) redirect("/onboarding");
   return {
     success: "Account created. Check your email to confirm it before signing in.",
   };

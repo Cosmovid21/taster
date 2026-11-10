@@ -7,15 +7,17 @@ import { EmptyState } from "@/components/EmptyState";
 import { InterestCard } from "@/components/InterestCard";
 import { PrimaryButton } from "@/components/PrimaryButton";
 import { useDemoProfile, useProgress } from "@/components/useProgress";
+import { CuriosityProfile } from "@/components/CuriosityProfile";
 import { isSupabaseConfigured } from "@/Lib/auth-config";
 import { nextIncompleteDay } from "@/Lib/storage";
-import type { Interest } from "@/Lib/types";
+import { recommendInterests } from "@/Lib/onboarding";
+import type { Interest, OnboardingPreferences } from "@/Lib/types";
 
 export function DashboardHome({
   viewer,
   interests,
 }: {
-  viewer: { mode: "anonymous" | "supabase"; name?: string; email?: string };
+  viewer: { mode: "anonymous" | "supabase"; name?: string; email?: string; preferences?: OnboardingPreferences };
   interests: Interest[];
 }) {
   const progress = useProgress();
@@ -23,6 +25,8 @@ export function DashboardHome({
   const configured = isSupabaseConfigured();
   const mode = viewer.mode === "supabase" ? "supabase" : demo ? "demo" : "anonymous";
   const name = viewer.mode === "supabase" ? viewer.name : demo?.name;
+  const preferences = viewer.mode === "supabase" ? viewer.preferences : demo?.preferences;
+  const personalized = preferences ? recommendInterests(preferences, interests) : [];
   const active = interests.find((interest) => interest.slug === progress.activeSlug) ?? null;
   const completed = active ? (progress.completedDays[active.slug] ?? []) : [];
   const today = active ? nextIncompleteDay(completed, active.activities.length) : 1;
@@ -61,6 +65,15 @@ export function DashboardHome({
         </p>
       ) : null}
 
+      {preferences ? (
+        <CuriosityProfile preferences={preferences} />
+      ) : mode === "demo" ? (
+        <section className="flex flex-col items-start justify-between gap-4 rounded-[1.5rem] bg-lavender/70 px-5 py-5 sm:flex-row sm:items-center">
+          <div><h2 className="text-lg font-semibold">Make this space yours</h2><p className="mt-1 text-sm leading-6 text-ink-soft">Answer a few quick questions to get interest suggestions and a curiosity profile.</p></div>
+          <PrimaryButton href="/onboarding">Set up my profile</PrimaryButton>
+        </section>
+      ) : null}
+
       {active && todayActivity ? (
         <section className="grid gap-5 lg:grid-cols-[minmax(0,1.3fr)_minmax(260px,0.7fr)]">
           <div className="rounded-[2rem] bg-white p-6 sm:p-8">
@@ -96,20 +109,20 @@ export function DashboardHome({
       ) : (
         <EmptyState
           title="No challenge yet"
-          description="New here? Pick one beginner interest and try the first 15-minute activity. Nothing is stored in an account yet."
-          action={<PrimaryButton href="/explore">Explore interests</PrimaryButton>}
+          description={preferences ? "Your suggestions are ready. Pick one beginner interest and try its first 15-minute activity." : "Pick one beginner interest and try the first 15-minute activity. Nothing is stored in an account yet."}
+          action={<PrimaryButton href={personalized[0] ? `/interests/${personalized[0].interest.slug}` : "/explore"}>{personalized[0] ? "Start my top suggestion" : "Explore interests"}</PrimaryButton>}
         />
       )}
 
       <section>
         <div className="flex items-end justify-between gap-3">
-          <h2 className="text-2xl font-semibold tracking-tight">Discover another interest</h2>
+          <h2 className="text-2xl font-semibold tracking-tight">{preferences ? "Picked for your curiosity" : "Discover another interest"}</h2>
           <Link href="/explore" className="text-sm font-semibold underline decoration-ink/30">
             See all
           </Link>
         </div>
         <div className="mt-5 grid gap-5 md:grid-cols-3">
-          {discoveries.map((interest, index) => (
+          {(preferences ? personalized.map((item) => item.interest).filter((interest) => interest.slug !== active?.slug) : discoveries).map((interest, index) => (
             <InterestCard key={interest.id} interest={interest} index={index + 1} />
           ))}
         </div>

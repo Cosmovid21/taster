@@ -24,6 +24,7 @@ export const interests: Interest[] = [
     outcome:
       "After seven days you can block in simple objects, add shadow, and tell which drawings feel more alive.",
     relatedSlug: "photography",
+    activityMix: { creativity: 5, problemSolving: 2, focus: 4, sensoryAwareness: 5, movement: 1 },
     activities: days([
       {
         day: 1,
@@ -134,6 +135,7 @@ export const interests: Interest[] = [
     outcome:
       "After seven days you can explain why a frame feels calm, crowded, bright, or flat.",
     relatedSlug: "sketching",
+    activityMix: { creativity: 3, problemSolving: 2, focus: 3, sensoryAwareness: 5, movement: 1 },
     activities: days([
       {
         day: 1,
@@ -244,6 +246,7 @@ export const interests: Interest[] = [
     outcome:
       "After seven days you can read a short program and change what it prints, decides, and repeats.",
     relatedSlug: "chess",
+    activityMix: { creativity: 2, problemSolving: 5, focus: 4, sensoryAwareness: 2, movement: 1 },
     activities: days([
       {
         day: 1,
@@ -354,6 +357,7 @@ export const interests: Interest[] = [
     outcome:
       "After seven days you can prep, season, and plate a simple meal without following a long recipe.",
     relatedSlug: "photography",
+    activityMix: { creativity: 2, problemSolving: 3, focus: 3, sensoryAwareness: 5, movement: 2 },
     activities: days([
       {
         day: 1,
@@ -464,6 +468,7 @@ export const interests: Interest[] = [
     outcome:
       "After seven days you have a small set of pages and a clearer sense of the tone you like.",
     relatedSlug: "sketching",
+    activityMix: { creativity: 5, problemSolving: 3, focus: 4, sensoryAwareness: 3, movement: 1 },
     activities: days([
       {
         day: 1,
@@ -574,6 +579,7 @@ export const interests: Interest[] = [
     outcome:
       "After seven days you can set up a board, make legal moves, and review one decision from a real game.",
     relatedSlug: "coding",
+    activityMix: { creativity: 1, problemSolving: 5, focus: 5, sensoryAwareness: 2, movement: 1 },
     activities: days([
       {
         day: 1,
@@ -684,6 +690,7 @@ export const interests: Interest[] = [
     outcome:
       "After seven days you can tune, fret a few open chords, and strum a slow pattern in time.",
     relatedSlug: "writing",
+    activityMix: { creativity: 5, problemSolving: 3, focus: 4, sensoryAwareness: 3, movement: 2 },
     activities: days([
       {
         day: 1,
@@ -794,6 +801,7 @@ export const interests: Interest[] = [
     outcome:
       "After seven days you have a short sequence you can repeat and a better sense of your range today.",
     relatedSlug: "sketching",
+    activityMix: { creativity: 2, problemSolving: 2, focus: 4, sensoryAwareness: 4, movement: 5 },
     activities: days([
       {
         day: 1,

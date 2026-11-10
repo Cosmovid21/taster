@@ -34,5 +34,23 @@ export type Interest = {
   challengeDescription: string;
   outcome: string;
   relatedSlug: string;
+  activityMix: PracticeProfile;
   activities: Activity[];
+};
+
+export type PracticeArea =
+  | "creativity"
+  | "problemSolving"
+  | "focus"
+  | "sensoryAwareness"
+  | "movement";
+
+export type PracticeProfile = Record<PracticeArea, number>;
+
+export type OnboardingPreferences = {
+  interestSlugs: string[];
+  goal: "make" | "solve" | "reset" | "express" | "practical";
+  sessionStyle: "quiet" | "handsOn" | "movement" | "openEnded";
+  experience: "new" | "some" | "returning";
+  includeReading: boolean;
 };
