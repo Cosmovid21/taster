@@ -27,6 +27,12 @@ export function InterestCard({
           sizes="(min-width: 1024px) 30vw, (min-width: 640px) 50vw, 100vw"
           className="object-cover transition duration-500 group-hover:scale-[1.03]"
         />
+        <span aria-hidden className="pointer-events-none absolute top-3 right-3 grid h-11 w-11 rotate-6 place-items-center rounded-2xl border-2 border-white bg-lime text-ink shadow-lg transition-transform duration-300 group-hover:rotate-[-8deg] group-hover:scale-110">
+          <Icon className="h-5 w-5" />
+        </span>
+        <span aria-hidden className="pointer-events-none absolute bottom-3 left-3 inline-flex -rotate-2 items-center gap-1.5 rounded-full border border-white/70 bg-white/90 px-3 py-1.5 text-[10px] font-bold tracking-[0.12em] text-ink shadow-md backdrop-blur-sm">
+          <span className="text-coral">✳</span> YOUR FIRST TRY
+        </span>
       </div>
       <div className="flex flex-1 flex-col p-5">
         <div className="flex items-center justify-between gap-3 text-xs font-semibold tracking-wide text-ink/70 uppercase">

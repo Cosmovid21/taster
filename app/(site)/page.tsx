@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight, Sparkles } from "lucide-react";
 import { ActivityCard } from "@/components/ActivityCard";
 import { InterestCard } from "@/components/InterestCard";
 import { PrimaryButton } from "@/components/PrimaryButton";
@@ -27,13 +28,11 @@ export default function HomePage() {
 
   return (
     <main>
-      <section className="mx-auto grid max-w-6xl items-end gap-10 px-5 py-16 lg:grid-cols-[1.2fr_0.8fr] lg:py-24">
+      <section className="mx-auto grid max-w-6xl items-center gap-10 px-5 py-12 sm:py-16 lg:grid-cols-[1.05fr_0.95fr] lg:py-20">
         <div className="rise">
-          <p className="text-sm font-semibold tracking-[0.18em] text-ink/60 uppercase">
-            A seven-day taste
-          </p>
+          <p className="inline-flex items-center gap-2 rounded-full bg-lime px-3 py-1.5 text-xs font-bold tracking-[0.12em] text-ink uppercase"><Sparkles aria-hidden className="h-3.5 w-3.5" /> A seven-day taste</p>
           <h1 className="mt-4 max-w-3xl text-5xl leading-[1.05] font-semibold tracking-tight sm:text-7xl">
-            Find out if you like it, before you buy the whole hobby.
+            Find out if you <span className="inline-block whitespace-nowrap bg-[linear-gradient(transparent_62%,#ff8f7a99_62%)]">like it</span>, before you buy the whole hobby.
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-8 text-ink-soft">
             Curio gives you one practical 15-minute activity a day for seven days. Then you decide whether to continue, explore a neighbor, or try something else.
@@ -48,22 +47,10 @@ export default function HomePage() {
             </PrimaryButton>
           </div>
         </div>
-        <div className="grid grid-cols-2 gap-3">
-          <div className="rounded-[1.75rem] bg-lime p-5">
-            <p className="text-4xl font-semibold">7</p>
-            <p className="mt-2 text-sm leading-6">days, then a real decision</p>
-          </div>
-          <div className="rounded-[1.75rem] bg-lavender p-5">
-            <p className="text-4xl font-semibold">15</p>
-            <p className="mt-2 text-sm leading-6">minutes, including setup</p>
-          </div>
-          <div className="col-span-2 rounded-[1.75rem] bg-sky p-5">
-            <p className="text-sm font-semibold tracking-[0.16em] uppercase">Today, not someday</p>
-            <p className="mt-2 text-2xl font-semibold tracking-tight">
-              A cup, a chord, a pawn, a paragraph.
-            </p>
-          </div>
-        </div>
+        <figure className="curio-art-float relative mx-auto w-full max-w-[560px]">
+          <Image src="/curio-collage.svg" alt="A cheerful collage of sketching, cooking, and guitar activities, with a seven day, 15 minutes a day badge." width={880} height={740} priority sizes="(min-width: 1024px) 48vw, 100vw" className="h-auto w-full drop-shadow-[0_28px_36px_rgba(36,36,36,0.14)]" />
+          <figcaption className="absolute -bottom-2 left-[8%] inline-flex -rotate-3 items-center gap-2 rounded-full border border-ink/10 bg-white px-4 py-2 text-xs font-semibold shadow-lg sm:bottom-3"><span aria-hidden className="text-coral">✳</span> Little experiments. Big “oh, I like this.”</figcaption>
+        </figure>
       </section>
 
       <section className="mx-auto max-w-6xl px-5 py-8">
