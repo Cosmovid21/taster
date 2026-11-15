@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 740" role="img" aria-labelledby="title desc">
+  <title id="title">Curio hobby collage</title>
+  <desc id="desc">A playful collage of sketching, cooking, and guitar activities, with doodles and a seven day badge.</desc>
+  <defs>
+    <filter id="shadow" x="-30%" y="-25%" width="160%" height="170%">
+      <feDropShadow dx="0" dy="18" stdDeviation="16" flood-color="#242424" flood-opacity=".15"/>
+    </filter>
+  </defs>
+  <rect width="880" height="740" rx="56" fill="#e4d7ff"/>
+  <circle cx="742" cy="96" r="166" fill="#b9e4ff"/>
+  <circle cx="90" cy="640" r="162" fill="#ffb4a4"/>
+  <path d="M53 430c112-68 122-174 250-200s176 70 292 23 126-129 242-92" fill="none" stroke="#fffefa" stroke-width="5" stroke-linecap="round" stroke-dasharray="2 16" opacity=".9"/>
+  <g transform="rotate(-8 225 256)" filter="url(#shadow)">
+    <rect x="74" y="76" width="285" height="360" rx="24" fill="#fffefa"/>
+    <circle cx="105" cy="107" r="5" fill="#ff8f7a"/><circle cx="124" cy="107" r="5" fill="#d9f36a"/><circle cx="143" cy="107" r="5" fill="#b9e4ff"/>
+    <path d="M120 338c20-6 36-8 54-7 42 3 70 17 118 8" fill="none" stroke="#e4d7ff" stroke-width="3"/>
+    <path d="M182 318c-8-31-5-58 4-85m2 57c-25-16-40-37-47-62m49 36c24-20 36-44 40-70m-44 109c-22-22-36-27-57-30m60 1c19-18 33-24 54-29" fill="none" stroke="#526052" stroke-width="5" stroke-linecap="round"/>
+    <path d="M151 337h76l-8 44h-60z" fill="#ffb4a4" stroke="#242424" stroke-width="4" stroke-linejoin="round"/>
+    <path d="M157 351h65" stroke="#242424" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="279" cy="175" r="22" fill="#d9f36a"/>
+    <path d="m273 175 5 5 10-12" fill="none" stroke="#242424" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="107" y="402" font-family="Arial,sans-serif" font-size="13" font-weight="700" letter-spacing="2.3" fill="#5c574e">SKETCH SOMETHING REAL</text>
+  </g>
+  <g transform="rotate(8 666 230)" filter="url(#shadow)">
+    <rect x="520" y="70" width="286" height="318" rx="25" fill="#fffefa"/>
+    <rect x="542" y="92" width="70" height="22" rx="11" fill="#d9f36a"/>
+    <text x="577" y="107" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" font-weight="700" letter-spacing="1.5" fill="#242424">DAY 01</text>
+    <path d="M592 228h145c-8 68-36 96-73 96s-64-28-72-96Z" fill="#ffb4a4" stroke="#242424" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M737 246h25c20 0 20 34 0 34h-17" fill="none" stroke="#242424" stroke-width="5"/>
+    <path d="M587 219c0-9 7-16 16-16h128c9 0 16 7 16 16v7H587z" fill="#b9e4ff" stroke="#242424" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M619 192c8-22 24-34 46-34m-2 36c7-26 22-42 45-50" fill="none" stroke="#677263" stroke-width="5" stroke-linecap="round"/>
+    <path d="M657 168c-18-2-27-11-30-25 18 1 29 9 30 25Zm37-8c-2-18 6-30 20-36 1 17-5 29-20 36Z" fill="#9ebc69" stroke="#242424" stroke-width="3" stroke-linejoin="round"/>
+    <text x="550" y="360" font-family="Arial,sans-serif" font-size="13" font-weight="700" letter-spacing="2.1" fill="#5c574e">A LITTLE KITCHEN WIN</text>
+  </g>
+  <g transform="rotate(4 427 546)" filter="url(#shadow)">
+    <rect x="270" y="416" width="330" height="265" rx="27" fill="#b9e4ff"/>
+    <path d="M436 464c-33 0-54 25-54 58 0 20 11 36 29 44-17 13-27 35-27 62 0 9 6 16 15 16h88c9 0 15-7 15-16 0-27-10-49-27-62 18-8 29-24 29-44 0-33-21-58-54-58h-14Z" fill="#ffcf57" stroke="#242424" stroke-width="5"/>
+    <ellipse cx="443" cy="522" rx="22" ry="28" fill="#fffefa" stroke="#242424" stroke-width="4"/>
+    <path d="M421 541 362 588m100-47 59 47m-80-22-11 68m39-68 11 68" fill="none" stroke="#242424" stroke-width="5" stroke-linecap="round"/>
+    <path d="m351 610-19 4m208-4 19 4" fill="none" stroke="#242424" stroke-width="4" stroke-linecap="round"/>
+    <text x="304" y="659" font-family="Arial,sans-serif" font-size="13" font-weight="700" letter-spacing="2.4" fill="#242424">FIND YOUR FIRST RHYTHM</text>
+  </g>
+  <g transform="rotate(-11 728 512)">
+    <rect x="650" y="448" width="174" height="106" rx="25" fill="#d9f36a" stroke="#242424" stroke-width="3"/>
+    <text x="737" y="490" text-anchor="middle" font-family="Arial,sans-serif" font-size="29" font-weight="700" fill="#242424">7 days</text>
+    <text x="737" y="522" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" font-weight="700" letter-spacing="1.7" fill="#242424">15 MIN / DAY</text>
+  </g>
+  <path d="m468 93 9 19 21 3-15 14 4 21-19-10-19 10 4-21-15-14 21-3z" fill="#ff8f7a" stroke="#242424" stroke-width="3" stroke-linejoin="round"/>
+  <path d="m133 500 6 13 14 2-10 10 2 14-12-7-13 7 3-14-10-10 14-2z" fill="#d9f36a" stroke="#242424" stroke-width="2.5" stroke-linejoin="round"/>
+</svg>

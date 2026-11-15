@@ -12,7 +12,7 @@ import {
 } from "@/app/actions/auth";
 import { PrimaryButton } from "@/components/PrimaryButton";
 import { isSupabaseConfigured } from "@/Lib/auth-config";
-import { saveDemoProfile } from "@/Lib/storage";
+import { demoSnapshot, parseDemo, saveDemoProfile } from "@/Lib/storage";
 import { passwordChecks, validateEmail, validateName } from "@/Lib/validation";
 
 const initialState: AuthFormState = {};
@@ -115,9 +115,12 @@ export function LoginForm() {
       setDemoError(emailError);
       return;
     }
-    const name = email.split("@")[0] || "Explorer";
-    saveDemoProfile({ name, email });
-    router.push("/dashboard");
+    const previousProfile = parseDemo(demoSnapshot());
+    const profile = previousProfile && previousProfile.email.toLowerCase() === email.toLowerCase()
+      ? { ...previousProfile, email }
+      : { name: email.split("@")[0] || "Explorer", email };
+    saveDemoProfile(profile);
+    router.push(profile.onboardingComplete ? "/dashboard" : "/onboarding");
   }
 
   return (
@@ -196,7 +199,7 @@ export function SignupForm() {
       return;
     }
     saveDemoProfile({ name, email });
-    router.push("/dashboard");
+    router.push("/onboarding");
   }
 
   return (

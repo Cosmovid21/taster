@@ -23,7 +23,9 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
 ```
 
-In the Supabase project, enable email and password auth and add `http://localhost:3000` to the redirect allow list.
+In the Supabase project, enable email and password auth and add `http://localhost:3000/**` and your Vercel domain (for example, `https://your-app.vercel.app/**`) to the redirect allow list. Email confirmation returns to `/onboarding`; password recovery returns to `/login`.
+
+New accounts and returning users without a saved profile go through `/onboarding`. The setup asks about interests, goals, preferred session style, experience, and optional short reads. Supabase preferences are stored in user metadata; demo preferences stay in this browser. Interest suggestions use the central activity tags. The dashboard chart describes the mix of suggested activities and does not represent brain activity or a health assessment.
 
 If those variables are missing, login and signup stay in a labelled local development mode. Demo mode stores a display name in this browser and does not check or store a password.
 

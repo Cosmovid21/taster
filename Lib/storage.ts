@@ -1,3 +1,6 @@
+import { parseOnboardingPreferences } from "@/Lib/onboarding";
+import type { OnboardingPreferences } from "@/Lib/types";
+
 export const PROGRESS_KEY = "curio.progress.v1";
 export const DEMO_KEY = "curio.demo.v1";
 export const PROGRESS_EVENT = "curio-progress";
@@ -14,6 +17,8 @@ export type ProgressState = {
 export type DemoProfile = {
   name: string;
   email: string;
+  onboardingComplete?: boolean;
+  preferences?: OnboardingPreferences;
 };
 
 export const emptyProgress: ProgressState = {
@@ -70,7 +75,12 @@ export function parseDemo(raw: string): DemoProfile | null {
   try {
     const parsed = JSON.parse(raw) as Partial<DemoProfile>;
     if (!parsed.name || !parsed.email) return null;
-    return { name: parsed.name, email: parsed.email };
+    return {
+      name: parsed.name,
+      email: parsed.email,
+      onboardingComplete: parsed.onboardingComplete === true,
+      preferences: parseOnboardingPreferences(parsed.preferences),
+    };
   } catch {
     return null;
   }

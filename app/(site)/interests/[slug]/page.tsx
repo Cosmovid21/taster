@@ -55,6 +55,12 @@ export default async function InterestPage({
             sizes="(min-width: 1024px) 55vw, 100vw"
             className="object-cover"
           />
+          <div aria-hidden className="absolute top-5 right-5 grid h-16 w-16 rotate-6 place-items-center rounded-[1.35rem] border-[3px] border-white bg-lime text-ink shadow-xl transition-transform duration-300 hover:rotate-[-8deg]">
+            <Icon className="h-7 w-7" />
+          </div>
+          <div className="absolute bottom-5 left-5 inline-flex -rotate-2 items-center gap-2 rounded-full border border-white/80 bg-white/95 px-4 py-2 text-xs font-bold text-ink shadow-lg backdrop-blur-sm">
+            <span aria-hidden className="text-coral">✳</span> ONE SMALL ADVENTURE
+          </div>
         </div>
         <div>
           <p className="inline-flex items-center gap-2 text-sm font-semibold tracking-[0.16em] text-ink/60 uppercase">

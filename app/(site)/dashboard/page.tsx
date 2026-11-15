@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import { redirect } from "next/navigation";
 import { Suspense } from "react";
 import { DashboardHome } from "@/components/DashboardHome";
 import { isSupabaseConfigured } from "@/Lib/auth-config";
 import { interests } from "@/Lib/interests";
+import { parseOnboardingPreferences } from "@/Lib/onboarding";
 import { createSupabaseServerClient } from "@/Lib/supabase/server";
 
 export const metadata: Metadata = {
@@ -21,11 +23,14 @@ async function SignedInDashboard() {
   if (!user) {
     return <DashboardHome viewer={{ mode: "anonymous" }} interests={interests} />;
   }
+  const savedSetup = user.user_metadata?.curio_onboarding;
+  const preferences = parseOnboardingPreferences(savedSetup);
+  if (!preferences || !savedSetup?.completed) redirect("/onboarding");
   const metadataName = user.user_metadata?.name;
   const name = typeof metadataName === "string" ? metadataName : undefined;
   return (
     <DashboardHome
-      viewer={{ mode: "supabase", name, email: user.email ?? "" }}
+      viewer={{ mode: "supabase", name, email: user.email ?? "", preferences }}
       interests={interests}
     />
   );
